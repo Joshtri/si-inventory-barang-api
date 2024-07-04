@@ -13,14 +13,44 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Product{
+model Product {
   id        Int      @id @default(autoincrement())
   name      String
   price     Int
   createdAt DateTime @default(now())
-
 }
 
-model User{
-  
+model User {
+  id           Int        @id @default(autoincrement())
+  nama_lengkap String     @db.VarChar(50)
+  username     String     @db.VarChar(50)
+  password     String
+  items_in     item_in[]
+  items_out    item_out[]
+}
+
+model item_in {
+  id         Int      @id @default(autoincrement())
+  item_code  String   @db.VarChar(10)
+  item_name  String
+  quantity   Int
+  entry_date DateTime
+  item_type  String
+  keterangan String
+  userId     Int?
+  user_nama  String   @db.VarChar(50)
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+model item_out {
+  id         Int      @id @default(autoincrement())
+  item_code  String   @db.VarChar(10)
+  item_name  String
+  quantity   Int
+  out_date   DateTime
+  item_type  String
+  keterangan String
+  userId     Int?
+  user_nama  String   @db.VarChar(50)
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
 }

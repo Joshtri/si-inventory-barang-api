@@ -6,3 +6,4 @@ export const productSchema = Joi.object({
     // description: Joi.string().max(255),
     // Tambahkan validasi untuk atribut lain sesuai kebutuhan
 });
+    

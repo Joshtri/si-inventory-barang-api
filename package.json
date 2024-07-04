@@ -1,5 +1,5 @@
 {
-  "name": "si-inventory-barang-server",
+  "name": "si-inventory-barang-api",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
