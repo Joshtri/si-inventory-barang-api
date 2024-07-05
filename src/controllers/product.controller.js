@@ -28,7 +28,7 @@ export const getProductById = async (req, res) =>{
     } catch (error) {
         res.status(404).json({msg: error.message});
     }
-}
+};
 
 export const createProduct = async (req, res) =>{
     const { name, price } = req.body;
@@ -43,12 +43,12 @@ export const createProduct = async (req, res) =>{
     } catch (error) {
         res.status(400).json({ msg: error.message });
     }
-}
+};
 
 export const updateProduct = async (req, res) =>{
     const {name, price} = req.body;
     try {
-        const product = a   wait prisma.product.update({
+        const product = await prisma.product.update({
             where:{
                 id: Number(req.params.id)
             },
@@ -61,7 +61,7 @@ export const updateProduct = async (req, res) =>{
     } catch (error) {
         res.status(400).json({msg: error.message});
     }
-}
+};
 
 export const deleteProduct = async (req, res) =>{
     try {
@@ -74,4 +74,4 @@ export const deleteProduct = async (req, res) =>{
     } catch (error) {
         res.status(400).json({msg: error.message});
     }
-}
+};

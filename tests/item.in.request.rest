@@ -1,0 +1,57 @@
+GET http://localhost:5000/api/products
+
+###
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+    "name":"sabun mandi",
+    "price" : 20
+}
+
+
+
+### Get all items
+GET http://localhost:5000/api/item-in
+Content-Type: application/json
+
+###
+
+### Create a new item
+POST http://localhost:5000/api/item-in
+Content-Type: application/json
+
+{
+  "item_code": "ITEM123",
+  "item_name": "Item Name",
+  "quantity": 10,
+  "entry_date": "2024-07-05T00:00:00.000Z",
+  "item_type": "Type1",
+  "keterangan": "Some description",
+  "userId": 1,
+  "user_nama": "Eric Wu"
+}
+
+###
+
+### Update an existing item
+PATCH http://localhost:5000/api/item-in/2
+Content-Type: application/json
+
+{
+  "item_name": "Updated Item Name",
+  "quantity": 15,
+  "item_type": "Updated Type"
+}
+
+###
+
+### Delete an item
+DELETE http://localhost:5000/api/item-in/2
+Content-Type: application/json
+
+###
+
+### Get a single item by ID
+GET http://localhost:5000/api/item-in/2
+Content-Type: application/json

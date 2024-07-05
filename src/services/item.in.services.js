@@ -26,11 +26,11 @@ export const createItemIn = async(itemInData)=>{
     }
 };
 
-export const updateItemIn = async(id)=>{
+export const updateItemIn = async (id, data) => {
     try {
-        return await itemInRepository.updateItemIn(id);
+      return await itemInRepository.updateItemIn(id, data);
     } catch (error) {
-        throw new Error(error.message);
+      throw new Error(error.message);
     }
 };
 

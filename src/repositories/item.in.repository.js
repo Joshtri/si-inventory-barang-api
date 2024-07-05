@@ -31,12 +31,27 @@ export const deleteItemIn = async(id)=>{
     }
 };
 
-export const updateItemIn = async(id)=>{
+export const updateItemIn = async (id, data) => {
     try {
-        return await prisma.item_in.update({
-            where: id
-        });
+      // Check if the item exists
+      const item = await prisma.item_in.findUnique({
+        where: {
+          id: parseInt(id)
+        }
+      });
+  
+      if (!item) {
+        throw new Error('Item not found');
+      }
+  
+      // Proceed with the update if item exists
+      return await prisma.item_in.update({
+        where: {
+          id: parseInt(id)
+        },
+        data: data
+      });
     } catch (error) {
-        throw new Error(error.message);
+      throw new Error(error.message);
     }
 };

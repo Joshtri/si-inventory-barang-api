@@ -1,6 +1,5 @@
-/* eslint-disable no-empty */
+ 
 import * as itemOutService from '../services/item.out.services.js';
-
 
 export const getItemOut = async(req,res)=>{
     try {
@@ -20,5 +19,27 @@ export const createItemout = async(req,res)=>{
 
     } catch (error) {
         throw new Error(error.messsage);
+    }
+};
+
+
+export const deleteItemOut = async(req,res)=>{
+    try {
+        const id = req.params;
+        const response = await itemOutService.deleteItemOut(id);
+        res.status(200).json(response);
+    } catch (error) {
+        throw new Error(error.message);      
+    }
+};
+
+
+export const updateItemOut = async(req,res)=>{
+    try {
+        const id = req.params;
+        const response = await itemOutService.updateItemOut(id);
+        res.status(200).json(response);
+    } catch (error) {
+        throw new Error(error.message);
     }
 };
