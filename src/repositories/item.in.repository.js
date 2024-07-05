@@ -19,3 +19,24 @@ export const createItemIn = async(itemInData)=>{
         throw new Error(error.message);
     }
 };
+
+
+export const deleteItemIn = async(id)=>{
+    try {
+        return await prisma.item_in.delete({
+            where: id
+        });
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
+
+export const updateItemIn = async(id)=>{
+    try {
+        return await prisma.item_in.update({
+            where: id
+        });
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};

@@ -25,3 +25,19 @@ export const createItemIn = async(itemInData)=>{
         throw new Error(error.message);
     }
 };
+
+export const updateItemIn = async(id)=>{
+    try {
+        return await itemInRepository.updateItemIn(id);
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
+
+export const deleteItemIn = async(id)=>{
+    try {
+        return await itemInRepository.deleteItemIn(id);
+    } catch (error) {
+        throw new Error(error.message);      
+    }
+};
