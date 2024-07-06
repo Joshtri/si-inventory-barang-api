@@ -1,0 +1,19 @@
+### Register User
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+  "nama_lengkap": "admin",
+  "username": "admin",
+  "password": "111"
+}
+
+### Login User
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+
+  "username": "admin",
+  "password": "111"
+}

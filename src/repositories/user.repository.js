@@ -24,3 +24,22 @@ export const loginUser = async (username, password) => {
     throw new Error(error.message);
   }
 };
+
+
+export const createUser = async (nama_lengkap,username, password) => {
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await prisma.user.create({
+      data: {
+        nama_lengkap:nama_lengkap,
+        username: username,
+        password: hashedPassword,
+      },
+    });
+
+    return newUser;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
