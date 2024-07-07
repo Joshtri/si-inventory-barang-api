@@ -40,3 +40,12 @@ export const deleteItemOut = async(id)=>{
         throw new Error(error.message);      
     }
 };
+
+export const getTotalItemOut = async () => {
+    try {
+        const totalItemOut = await itemOutRepository.getTotalItemOut();
+        return totalItemOut;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};

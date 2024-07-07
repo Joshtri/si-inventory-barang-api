@@ -35,9 +35,24 @@ export const updateItemIn = async (id, data) => {
 };
 
 export const deleteItemIn = async(id)=>{
+    const parsedId = parseInt(id, 10);
+
+    if (isNaN(parsedId)) {
+      throw new Error('Invalid ID');
+    }
+  
     try {
-        return await itemInRepository.deleteItemIn(id);
+      return await itemInRepository.deleteItemIn(parsedId);
     } catch (error) {
-        throw new Error(error.message);      
+      throw new Error(error.message);
+    }
+};
+
+export const getTotalItemIn = async () => {
+    try {
+        const totalItemIn = await itemInRepository.getTotalItemIn();
+        return totalItemIn;
+    } catch (error) {
+        throw new Error(error.message);
     }
 };

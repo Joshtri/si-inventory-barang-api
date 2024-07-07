@@ -4,7 +4,7 @@ export const itemInSchema = Joi.object({
     item_code: Joi.string().max(10).required(),
     item_name: Joi.string().required(),
     quantity: Joi.number().integer().required(),
-    entry_date: Joi.date().iso().required(),
+    // entry_date: Joi.date().iso().required(),
     item_type: Joi.string().required(),
     keterangan: Joi.string().optional(),
     userId: Joi.number().integer().optional(),

@@ -23,13 +23,14 @@ export const createItemIn = async(req,res)=>{
 };
 
 
-export const deleteItemIn = async(req,res)=>{
+export const deleteItemIn = async (req, res) => {
     try {
-        const id = req.params;
-        const response = await itemInService.deleteItemIn(id);
-        res.status(200).json(response);
+      const { id } = req.params;
+      const response = await itemInService.deleteItemIn(id);
+      res.status(200).json(response);
     } catch (error) {
-        throw new Error(error.message);
+      console.error('Error deleting item:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
     }
 };
 
@@ -42,4 +43,13 @@ export const updateItemIn = async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
-  };
+};
+
+export const getTotalItemIn = async (req, res) => {
+    try {
+        const totalItemIn = await itemInService.getTotalItemIn();
+        res.status(200).json({ total: totalItemIn });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};

@@ -1,0 +1,13 @@
+### Create a new item out
+POST http://localhost:5000/api/item-out
+Content-Type: application/json
+
+{
+  "item_code": "ITEM123",
+  "item_name": "Item Name",
+  "quantity": 10,
+  "item_type": "Type1",
+  "keterangan": "Some description",
+  "userId": 1,
+  "user_nama": "Eric Wu"
+}

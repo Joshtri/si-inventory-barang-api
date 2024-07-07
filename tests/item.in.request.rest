@@ -25,7 +25,6 @@ Content-Type: application/json
   "item_code": "ITEM123",
   "item_name": "Item Name",
   "quantity": 10,
-  "entry_date": "2024-07-05T00:00:00.000Z",
   "item_type": "Type1",
   "keterangan": "Some description",
   "userId": 1,
@@ -55,3 +54,7 @@ Content-Type: application/json
 ### Get a single item by ID
 GET http://localhost:5000/api/item-in/2
 Content-Type: application/json
+
+
+###
+GET http://localhost:5000/api/total-item-in

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -41,3 +42,14 @@ export const updateItemOut = async(id)=>{
         throw new Error(error.message);
     }
 };
+
+export const getTotalItemOut = async () => {
+    try {
+        const totalItemOut = await prisma.item_out.count();
+        return totalItemOut;
+    } catch (error) {
+        throw new Error(error.message);
+    } finally {
+        await prisma.$disconnect();
+    }
+  };

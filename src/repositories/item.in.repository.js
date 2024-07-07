@@ -23,9 +23,9 @@ export const createItemIn = async(itemInData)=>{
 
 export const deleteItemIn = async(id)=>{
     try {
-        return await prisma.item_in.delete({
-            where: id
-        });
+      return await prisma.item_in.delete({
+        where: { id }
+      });
     } catch (error) {
         throw new Error(error.message);
     }
@@ -54,4 +54,15 @@ export const updateItemIn = async (id, data) => {
     } catch (error) {
       throw new Error(error.message);
     }
+};
+
+export const getTotalItemIn = async () => {
+  try {
+      const totalItemIn = await prisma.item_in.count();
+      return totalItemIn;
+  } catch (error) {
+      throw new Error(error.message);
+  } finally {
+      await prisma.$disconnect();
+  }
 };

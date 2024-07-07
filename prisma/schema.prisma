@@ -25,6 +25,7 @@ model User {
   nama_lengkap String
   username     String     @unique
   password     String
+  createdAt DateTime @default(now())
   items_in     item_in[]
   items_out    item_out[]
 }
@@ -34,10 +35,11 @@ model item_in {
   item_code  String   @db.VarChar(10)
   item_name  String
   quantity   Int
-  entry_date DateTime
+  // entry_date DateTime
   item_type  String
   keterangan String
   userId     Int?
+  createdAt DateTime @default(now())
   user_nama  String   @db.VarChar(50)
   user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
 }
@@ -47,10 +49,11 @@ model item_out {
   item_code  String   @db.VarChar(10)
   item_name  String
   quantity   Int
-  out_date   DateTime
+  // out_date   DateTime
   item_type  String
   keterangan String
   userId     Int?
+  createdAt DateTime @default(now())
   user_nama  String   @db.VarChar(50)
   user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
 }

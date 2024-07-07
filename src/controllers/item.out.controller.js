@@ -43,3 +43,12 @@ export const updateItemOut = async(req,res)=>{
         throw new Error(error.message);
     }
 };
+
+export const getTotalItemOut = async (req, res) => {
+    try {
+        const totalItemOut = await itemOutService.getTotalItemOut();
+        res.status(200).json({ total: totalItemOut });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
